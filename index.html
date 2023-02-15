@@ -13,7 +13,15 @@ var contractAddressSale = '0x249500C4B5f7dD12B30Aaaa9f0639653a9E06383';
 var contractAddressToken = '0x29c02150B09F55B3A0df37BB7A91549aCbF04Ba9';
 </script>
   <style>
-
+   #bg-video::-webkit-media-controls-start-playback-button {
+  display: none;
+   }
+   #bg-video::-webkit-media-controls-play-button {
+   display: none;
+   }
+   #bg-video::-webkit-media-controls {
+   display: none!important;
+   }
     .header { display: flex; align-items: center; background-image: url('opticalbanner.svg'); background-size: cover; color: #fff; padding: auto; flex-wrap: wrap; height: 150px; 
       margin-bottom: 20px;}
 
@@ -279,7 +287,7 @@ max-width: 100%;
       <button id="close-button" class="close"  >CLOSE X</button>
     </div>
   </header>
-  <video id="bg-video" autoplay loop muted>
+  <video id="bg-video" autoplay loop muted controls>
     <source src="video.mp4" type="video/mp4">
   </video>
   <script>
