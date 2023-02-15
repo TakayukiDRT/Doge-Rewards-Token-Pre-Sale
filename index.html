@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel=”icon” href=”favicon.ico” type=”image/x-icon” />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Doge Rewards Token Private Pre-Sale">
+    <title>Private Pre-Sale</title>
+<script>
+var test = false; // False if contracts are on Mainnet
+var contractAddressSale = '0x249500C4B5f7dD12B30Aaaa9f0639653a9E06383';
+var contractAddressToken = '0x29c02150B09F55B3A0df37BB7A91549aCbF04Ba9';
+</script>
+  <style>
+
+    .header { display: flex; align-items: center; background-image: url('opticalbanner.svg'); background-size: cover; color: #fff; padding: auto; flex-wrap: wrap; height: 150px; 
+      margin-bottom: 20px;}
+
+    .fstyle { display: flex; flex-direction: column; align-items: center; background-color: black; background-size: cover; position: absolute; height: 180px; width: 99%; 
+      margin-top: 80px;}
+
+    .disclaimer-box { width: 50%; background-color: black;}
+
+    .footerstyle {font-size: 12px; line-height: 1.25em; font-family: "helvetica"; font-weight: 400; color: #EDDACA; margin: 0 auto;}
+
+    .close { display: block; margin: 0 auto;}
+
+    .General { font-size: 19px; line-height: 1.25em; font-family: "helvetica"; font-weight: 600; color: #C3189E; margin: 0 auto;}
+
+    .General:hover {color:  #C3189E;}
+
+    .logo { width: 80px; height: 80px; margin-right: auto; margin-left: 10px;}
+
+    h1 { font-size: 30px; font-weight: 700; color: #C3189E;}
+
+    h2 { font-size: 22px; font-weight: 700; color: #DBB89A;}
+    
+    h3 { font-size: 37px; line-height: 1.25em; font-family: "helvetica"; font-weight: 800; color: #C3189E; margin: 0 auto;}
+
+    h4 { font-size: 20px; line-height: 1.25em; font-family: "helvetica"; margin: 0 auto;}
+
+    h5 { font-size: 20px;}
+
+    h6 { font-size: 16px;}
+
+    .lightbox { border-radius: 10px; display: none; position: fixed; padding: 20px; top: 18%; left: 50%; transform: translate(-50%, 0); background-color: #5A5A5A; 
+      box-shadow: 0 0 30px #3b3b3b; width: 600px;}
+
+    .lightbox-btn { font-family: "helvetica"; font-weight: bold; padding: 10px 10px; background-color: transparent; color: #DBB89A; border: none; margin-left: 10px;
+      margin-right: auto; font-size: 18px; cursor: pointer;}
+
+    .lightbox-btn:hover { border-radius: none;  background-color: transparent; text-decoration: none; /* added */color: #C3189E;}
+
+    .close-button { display: block; margin: 0 auto;}
+
+    .overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5);}
+
+    .small { font-size: 18px; font-weight: 900;}
+
+    @media (min-width: 510px) and (max-width: 830px) {
+      .header { padding: auto; flex-wrap: wrap; height: 100px; margin-bottom: 20px;}
+    
+    h1 { font-size: 20px;}
+
+    h2 { font-size: 21px;}
+
+    h3 { font-size: 21px; line-height: 1.25em;}
+
+    h4 { font-size: 15px;}
+      
+    h5 { font-size: 17px;}
+
+    h6 { font-size: 13px;}
+      
+    .logo { width: 70px; height: 70px; margin-left: 10px;}
+
+    .lightbox { border-radius: 10px; display: none; position: fixed; padding: 20px; top: 14%; left: 50%; transform: translate(-50%); background-color: #5A5A5A;
+      box-shadow: 0 0 30px #3b3b3b; width: 350px;}
+
+    .lightbox-btn { padding: 2px 2px; margin-right: auto; font-size: 14px;}
+
+    .close { display: block; margin: 0 auto; font-size: 12px;} 
+
+    .connectclass { font-size: 12px;}
+    
+    .footerstyle { font-size: 8px;}
+
+    .disclaimer-box { width: 90%;}
+    
+    .fstyle { display: flex; flex-direction: column; align-items: center; background-color: black; background-size: cover; position: absolute; width: 95%; margin-top: 10px;}
+
+    .General { font-size: 12px; line-height: 1.25em; font-family: "helvetica"; font-weight: 600; color: #C3189E; margin: 0 auto; margin-top: 0px;}
+
+    .small { font-size: 11px; font-weight: 80;}
+    }
+
+    @media (min-width: 420px) and (max-width: 509px) {  
+    h3 { font-size: 32px; line-height: 1.25em;}
+
+    h5 { font-size: 18px;}
+
+    h6 { font-size: 14px;}
+      
+    .logo { width: 80px; height: 80px; margin-left: 55px;}
+
+    .lightbox { top: 13%;}
+
+    .footerstyle { font-size: 11px; line-height: 1.25em; font-family: "helvetica"; font-weight: 150; color: #EDDACA; margin: 0 auto;}
+
+    .disclaimer-box { width: 80%;}
+    
+    .fstyle { display: flex; flex-direction: column; align-items: center; background-color: black; background-size: cover; position: absolute; height: 230px; width: 99%;}
+    
+    .close { display: block; margin: 0 auto; font-size: 18px;}
+    
+    .General { font-size: 18px; line-height: 1.25em; font-family: "helvetica"; font-weight: 600; color: #C3189E; margin: 0 auto; margin-top: 20px;}
+  }
+
+  @media ( max-width: 419px) {
+    .header { padding: auto; flex-wrap: wrap; height: 100px; margin-bottom: 20px;}
+    
+    h1 { font-size: 18px;}
+
+    h2 { font-size: 19px;}
+
+    h3 { font-size: 19px; line-height: 1.25em;}
+
+    h4 { font-size: 13px;}
+      
+    h5 { font-size: 15px;}
+
+    h6 { font-size:11px;}
+      
+    .logo { width: 50px; height: 50px; margin-left: 10px;}
+
+    .lightbox { border-radius: 10px; display: none; position: fixed; padding: 20px; top: 12%; left: 50%; transform: translate(-50%); background-color: #5A5A5A;
+      box-shadow: 0 0 30px #3b3b3b; width: 350px;}
+
+    .lightbox-btn { padding: 2px 2px; margin-right: auto; font-size: 12px;}
+
+    .close { display: block; margin: 0 auto; font-size: 12px;} 
+
+    .connectclass { font-size: 12px;}
+    
+    .footerstyle { font-size: 8px;}
+
+    .disclaimer-box { width: 90%;}
+    
+    .fstyle { display: flex; flex-direction: column; align-items: center; background-color: black; background-size: cover; position: absolute; width: 95%; margin-top: 10px;}
+
+    .General { font-size: 12px; line-height: 1.25em; font-family: "helvetica"; font-weight: 600; color: #C3189E; margin: 0 auto; margin-top: 0px;}
+
+    .small { font-size: 11px; font-weight: 80;}
+  }
+    body {
+      margin:0; 
+      margin-left: 8px; /* adds 20 pixels of margin to the left */
+      margin-right: 8px; /* adds 20 pixels of margin to the right */
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+      color: #DBB89A;
+      font-size: 16px;
+      font-weight: 400;
+     }
+
+    #bg-video {  
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: -1;
+}
+
+
+
+.network.small {
+margin-top: 25px;
+}
+
+.err {
+color: #C3189E;
+font-weight: 900;
+}
+
+.green {
+color: green;
+}
+
+.blue {
+color: blue;
+}
+
+* {
+box-sizing: border-box;
+}
+
+a {
+color: #DBB89A;
+text-decoration: none;
+}
+
+a:hover {
+color: #e0914b;
+}
+
+.clickable {
+cursor: pointer;
+}
+
+.clickable:hover {
+color: #C0C0C0;
+}
+
+button {
+background-color: #283747;
+border: none;
+border-radius: 10px;
+font-weight: bold;
+color: #DBB89A;
+padding: 5px 20px;
+text-align: center;
+text-decoration: none;
+font-size: 16px;
+display: inline-block;
+margin: 4px 2px;
+cursor: pointer;
+}
+
+button:hover {
+background-color: #283747;
+color: #C3189E;
+}
+
+button[disabled] {
+opacity: 0.6;
+cursor: not-allowed;
+}
+
+hr {
+
+border: 0;
+border-top: 1px dashed;
+}
+
+input {
+text-align: center;
+font-size: 18px;
+background-color: #000000;
+color: #FFFFFF;
+border:1px solid;
+max-width: 100%;
+}
+
+  </style>
+
+</head>
+<body>
+  <header class="header">
+    <img class="logo" src="https://static.wixstatic.com/media/c1d670_471c6ba0f051462ea7ebd2ec9d7db2e9~mv2.gif">
+    <h3 style="text-align: center">Doge Rewards Token<br>Private Pre-Sale</h3>
+    <button id="open-lightbox" class="lightbox-btn">How To</button>
+    <div class="lightbox" id="lightbox">
+      <button id="presaledetails-button" class="lightbox-btn">Private Pre-Sale Details</button>
+      <br/><br/>
+      <a href="https://www.dogerewards.net/how-to-metamask" target="_blank"><button id="metamask-button" class="lightbox-btn">Connect Metmask to BSC</button></a>
+      <br/><br/>
+      <a href="https://www.dogerewards.net/how-to-metamask" target="_blank"><button id="trust-button" class="lightbox-btn">Connect TrustWallet to BSC</button></a>
+      <br/><br/>
+      <a href="https://www.dogerewards.net/how-to-coinbase" target="_blank"><button id="coinbase-button" class="lightbox-btn">Connect Coinbase Wallet to BSC</button></a>
+      <br/><br/>
+      <button id="presale-button" class="lightbox-btn">Buy in Private Pre-Sale</button>
+      <br/><br/>
+      <a href="https://www.dogerewards.net" target="_blank"><button id="home-button" class="lightbox-btn">Home Page</button></a>
+      <br/><br/>
+      <button id="close-button" class="close"  >CLOSE X</button>
+    </div>
+  </header>
+  <video id="bg-video" autoplay loop muted>
+    <source src="video.mp4" type="video/mp4">
+  </video>
+  <script>
+    document.getElementById("open-lightbox").addEventListener("click", function() {
+      document.getElementById("lightbox").style.display = "block";
+      document.getElementById("overlay").style.display = "block";
+    });
+    document.getElementById("close-button").addEventListener("click", function() {
+      document.getElementById("lightbox").style.display = "none";
+      document.getElementById("overlay").style.display = "none";
+    });
+  </script>
+<div style="text-align: center">
+<button id="connect" class="connectclass">Connect</button> <button class="switch connectclass" id="addMainBSC">To BSC Mainnet</button>
+<span id="nometamask" class="err" style="display: none">Please Install Wallet first...</span>
+<div class="network small"><span id="curnet"><span class="err">Please use DApp browser/extension (Click "How To" For Help)</span></span> <span id="myAddr"></span>
+<span id="referred" style="display:none"><br>Referrer: <span id="referrer"></span></span></div>
+</div>
+
+<div style="text-align: center">
+<h1>Token info</h1>
+<h2><span id="tokenName">Doge Rewards Token</span> (<span class="tokenSymbol">DRT</span>)</h2>
+<p><h4><a target="_blank" href="https://bscscan.com/token/0x29c02150B09F55B3A0df37BB7A91549aCbF04Ba9" id="tokenAddress">0x29c02150B09F55B3A0df37BB7A91549aCbF04Ba9</a></h4></p>
+<!-- Reserved in case you want to show decimals and total supply: Decimals <span id="#tokenDecimals"></span> Total supply <span id="#tokenSupply"></span>-->
+<p><button id="addToken" class="connectclass" style="text-align: center">Add to Metamask</button> <button id="copyToken" class="connectclass" style="text-align: center">Copy address</button></p>
+</div>
+
+<div style="text-align: center">
+<h1>Token sale status</h1>
+<h1>
+<span id="finished" style="display:none" class="status green">Finished</span>
+<span id="unlocked" style="display:none" class="status green"><br>Claim unlocked</span>
+<span id="locked" style="display:none" class="status err"><br>Claim locked</span>
+<span id="addtokens" style="display:none" class="status err"><br>Ask token sale admin to add tokens to the sale contract!</span>
+<span id="active" style="display:none" class="status green">Active</span>
+<span id="paused" style="display:none" class="status err">Paused</span>
+<span id="upcoming" style="display:none" class="status blue">Upcoming</span>
+<span id="upcomingtimer" style="display:none" class="status blue"><br>begins in <span id="starttimer"></span></span> <span id="activetimer" style="display:none" class="status green"><br>ends in <span id="endtimer"></span></span> </h1>
+<h5>
+<p><progress id="progress" value="0" max="100" style="width: 70%"></progress></p>
+<p>Raised: <span id="raised"></span> of <span class="hardcap"></span> BNB</p>
+<p>Tokens sold: <span id="sold"></span> of <span class="saleqty"></span> <span class="tokenSymbol">DRT</span></p>
+<p>Remaining: <span id="toraise"></span> BNB (~ <span id="unsold"></span> <span class="tokenSymbol">DRT</span>)</p></h5>
+</div>
+<hr>
+
+<div style="text-align: center">
+<h1>Buy tokens</h1>
+<h6>
+<p>1 BNB = <span class="rate"></span> <span class="tokenSymbol">DRT</span></p>
+<p><input type="number" id="buyAmount" value="0" min="0"> BNB</p>
+<p>You get: <span id="get">0</span> <span class="tokenSymbol">DRT</span></p></h6>
+<p><button id="buyBtn" class="connectclass" style="text-align: center">Buy</button></p>
+<h6>
+<p>You have contributed <span id="mySpendings">?</span> of <span class="max">?</span> BNB maximum purchase limit,
+can spend max. <span id="myRemaining">?</span> BNB more</p></h6>
+<hr>
+
+<div style="text-align: center">
+<h1>Token sale information</h1>
+<h6>
+<p>Hardcap: <span class="hardcap"></span> BNB (~ <span class="saleqty"></span> <span class="tokenSymbol">DRT</span>)</p>
+<p>Rate: 1 BNB = <span class="rate"></span> <span class="tokenSymbol">DRT</span> (~ <span class="price"></span> BNB/<span class="tokenSymbol">DRT</span>)</p>
+<p>Purchase limit: <span class="max"></span></p>
+<p>Start: <span id="start"></span></p>
+<p>End: <span id="end"></span></p>
+<p>Duration: <span id="duration"></span></p>
+<p>Tokens claim: <span id="claimtime"></span>
+<span id="canhcdelay" style="display:none" class="claimstatus">Can be claimed after hardcap is reached + <span id="canhcdelayh"></span></span>
+<span id="canhc" style="display:none" class="claimstatus">Can be claimed immediately after hardcap is reached</span>
+<span id="cannothc" style="display:none" class="claimstatus">Can be claimed only when unlock time comes</span>
+</p></h6>
+
+</div>
+<hr>
+
+<div style="text-align: center">
+<h1>My tokens</h1>
+<h6>
+<p>In my wallet: <span id="myTokens"></span></p>
+<p>Unclaimed: <span id="myUnclaimed"></span></p>
+<div id="claimstatus">
+<span id="claimok" style="display:none" class="claimstatus green">Tokens are unlocked and can be claimed</span>
+<span id="claimnotok" style="display:none" class="claimstatus err">Tokens are locked</span>
+</h6>
+</div>
+<p><button id="claim" class="connectclass">Claim my tokens</button></p>
+</div>
+<hr>
+
+<div style="text-align: center">
+<h1>Sale contract</h1>
+<h6>
+<p>You can also buy tokens by sending BNB directly from your wallet to this contract<br>
+(please increase gas limit to 200,000 or even more for tokens with special functions like autoLP, swaps, etc.)</p></h6>
+<h4>
+<p><a href="https://bscscan.com/address/0x249500C4B5f7dD12B30Aaaa9f0639653a9E06383" target="_blank" id="saleAddress">0x249500C4B5f7dD12B30Aaaa9f0639653a9E06383</a></h4> <button id="copySale" class="connectclass" style="text-align: center">Copy address</button></p>
+<div style="text-align: center" id="saleqr"></div>
+</div>
+<hr>
+
+<div id="refarea" style="text-align: center">
+<h1>Referral program</h1>
+<h6>
+<p>Share your referral link and get paid instantly to your wallet for every referred token purchase.</p>
+<p>Total paid to referrers: <span id="refTotal"></span> BNB</p>
+<p>Referral commission: <span id="refPercent">10</span>%</p>
+<p>Your referral earnings: <span id="refMy"></span> BNB</p>
+
+<p>Share your referral link or QR code and get commission for referred token purchases instantly to your wallet.</p>
+<p><input type="text" id="referLink" size="70" readonly="true"> <button id="copyreflink" class="connectclass">Copy link</button></p>
+<div id="refqrcode">
+<div style="text-align: center" id="refqr"></div>
+</div>
+<p id="refErr" class="err" style="display: none">Please connect your wallet on Binance Smart Chain to generate your referral link!</p></h6>
+</div>
+
+<script src='https://dappbuilder.org/js/jquery-3.6.0.min.js' type="text/javascript" charset="utf-8"></script>
+<script src='https://dappbuilder.org/js/ethers-5.0.umd.min.js' type="text/javascript" charset="utf-8"></script>
+<script src='https://dappbuilder.org/bsc/tokensaleclaimtimeref/js/tokensale.ui.js' type="text/javascript" charset="utf-8"></script>
+
+
+</body>
+<footer class="fstyle">
+</br>
+<div class="footer-buttons" style="display: flex; justify-content: space-between; width: 80%; margin: 0 auto;">
+  <a class="General" href="https://www.dogerewards.net/privacy-policy" target="_blank">Privacy Policy</a>
+  <a class="General" href="https://www.dogerewards.net/terms-of-use" target="_blank" >Terms of use</a>
+  <a class="General" href=mailto:“info@dogerewards.net” target="_blank">Email</a>
+</div>
+</br></br>
+  <div class="disclaimer-box">
+    <p class="footerstyle" style="text-align: center; line-height: 2;">
+      ©2022 by Doge Rewards. Investing in crypto, including Doge Rewards Token (the Token) is high risk and the value of your investments can go down as well as up. The purchase of cryptocurrencies is not legal in all countries/states. Please take legal/tax advice before considering any investment. Doge Rewards Marketing Ltd (the Company) is a non-profit organization responsible for marketing Doge Rewards Token (the Token) and cannot be held responsible for any breaches in local law or regulation as a result of you purchasing Doge Rewards Token (the Token). Nothing stated on this website or on any content produced by Doge Rewards Marketing Ltd (the Company) should be considered as a recommendation to invest.
+    </p>
+  </div>
+</footer>
+
+
+</html>
